@@ -24,7 +24,7 @@ export class HomeBLL {
         ],
         where: {
           TermName: {
-            [Op.like]: letter + "%",
+            [Op.iLike]: letter + "%",
           },
         },
         limit: 10,
@@ -55,7 +55,7 @@ export class HomeBLL {
         ],
         where: {
           TermName: {
-            [Op.like]: letter + "%",
+            [Op.iLike]: letter + "%",
           },
         },
         limit: 10,
