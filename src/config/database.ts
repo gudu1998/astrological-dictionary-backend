@@ -12,5 +12,11 @@ const dbPassword = process.env.DB_PASSWORD;
 export const sequelizeConnection = new Sequelize(dbName, dbUser, dbPassword, {
   host: dbHost,
   dialect: dbDriver,
-  logging: false,
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false // For testing; secure in production
+    }
+  }
+  
 });

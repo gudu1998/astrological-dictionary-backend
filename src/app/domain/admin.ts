@@ -96,6 +96,8 @@ export class AdminBLL {
       });
       return astrologicalTerms;
     } catch (error) {
+      console.log(error);
+      
       throw new Error(
         `method : fetchAstrologicalDictionary class: AdminBLL Error: ${error}`
       );
