@@ -12,6 +12,7 @@ import {
   fetchDreamTermById,
   fetchZodiacSign,
   fetchZodiacSignById,
+  fetchZodiacSignByName,
   updateAstrologicalTermByID,
   updateDreamTermByID,
   updateZodiacSignByID,
@@ -37,6 +38,7 @@ adminRouter.get("/dream-dictionary/delete/:id", deleteDreamTermByID);
 adminRouter.post("/dream-dictionary/edit/:id", updateDreamTermByID);
 adminRouter.get("/zodiac-sign", fetchZodiacSign);
 adminRouter.get("/zodiac-sign/:id", fetchZodiacSignById);
+adminRouter.get("/zodiac-sign-details/:name", fetchZodiacSignByName);
 adminRouter.post("/zodiac-sign/save", addZodiacSign);
 adminRouter.get("/zodiac-sign/delete/:id", deleteZodiacSignByID);
 adminRouter.post("/zodiac-sign/edit/:id", updateZodiacSignByID);

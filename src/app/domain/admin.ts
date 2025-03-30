@@ -96,8 +96,6 @@ export class AdminBLL {
       });
       return astrologicalTerms;
     } catch (error) {
-      console.log(error);
-      
       throw new Error(
         `method : fetchAstrologicalDictionary class: AdminBLL Error: ${error}`
       );
@@ -351,6 +349,36 @@ export class AdminBLL {
       );
     }
   }
+
+    /**
+   * This method is used to Fetch Zodiac Sign
+   *
+   * @return {*}  List of Zodiac Sign
+   * @memberof AdminBLL
+   */
+    async fetchZodiacSignByName(termName: string): Promise<AstrologicalTermResponse[]> {
+      try {
+        const zodiacSign: any = await ZODIAC_SIGN.findOne({
+          raw: true,
+          attributes: [
+            ["ZodiacSignID", "id"],
+            ["ZodiacSign", "name"],
+            ["Description", "desc"],
+            ["CreatedAt", "dateAdded"],
+          ],
+          where: {
+            ZodiacSign: {
+              [Op.iLike]: termName,
+            },
+          },
+        });
+        return zodiacSign;
+      } catch (error) {
+        throw new Error(
+          `method : fetchZodiacSignDetailsByName class: AdminBLL Error: ${error}`
+        );
+      }
+    }
 
   /**
    * This method is used to Fetch Zodiac Sign by ID

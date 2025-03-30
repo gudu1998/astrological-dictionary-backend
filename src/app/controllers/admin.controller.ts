@@ -244,6 +244,23 @@ export const fetchZodiacSign = async (
   }
 };
 
+export const fetchZodiacSignByName = async (
+  req: Request,
+  res: Response
+): Promise<any> => {
+  try {
+    const name: any = req.params["name"];
+    const result = await new AdminBLL().fetchZodiacSignByName(name);
+    if (result) {
+      return res.status(eStatusCode.OK).send(result);
+    } else {
+      return res.status(eStatusCode.NOT_FOUND).send(eErrorMessage.NoRecord);
+    }
+  } catch (error) {
+    res.status(eStatusCode.INTERNAL_SERVER_ERROR).send(`${error}`);
+  }
+};
+
 export const fetchZodiacSignById = async (
   req: Request,
   res: Response

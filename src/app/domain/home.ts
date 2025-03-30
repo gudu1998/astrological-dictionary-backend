@@ -26,8 +26,7 @@ export class HomeBLL {
           TermName: {
             [Op.iLike]: letter + "%",
           },
-        },
-        limit: 10,
+        }
       });
       return astrologicalTerms;
     } catch (error) {
@@ -57,8 +56,7 @@ export class HomeBLL {
           TermName: {
             [Op.iLike]: letter + "%",
           },
-        },
-        limit: 10,
+        }
       });
       return dreamTerms;
     } catch (error) {
